@@ -15,9 +15,9 @@ int sumaDigitos(int numero) {
     resultadoSumaDigitos = primerDigito + segundoDigito;
 
     if (resultadoSumaDigitos % 3 == 0) {
-        esMultiploDeTres = 1;
-    } else {
         esMultiploDeTres = 0;
+    } else {
+        esMultiploDeTres = 1;
     }
 
     return esMultiploDeTres;
@@ -45,15 +45,9 @@ double calcularTarifa(int horas, int dia) {
     if (horas == 1) {
         totalPagar = 6;
     } else if (horas > 1 && horas <= 3) {
-        totalPagar = horas - 1;
-        totalPagar = totalPagar * 4;
-        totalPagar = totalPagar + 6;
+        totalPagar = TARIFA_PRIMERA_HORA + ((horas-1) * TARIFA_1_A_3);
     } else if (horas > 3 && horas <= 5) {
-        totalPagar = 2 * 4;
-        totalPagar = totalPagar + 6;
-        int extraHoras = horas - 3;
-        int extraCosto = extraHoras * 3;
-        totalPagar = totalPagar + extraCosto;
+        totalPagar = TARIFA_PRIMERA_HORA + (2 * TARIFA_1_A_3) + ((horas - 3) * TARIFA_3_A_5);
     } else {
         totalPagar = TARIFA_FIJA;
     }
